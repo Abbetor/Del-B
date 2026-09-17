@@ -11,14 +11,17 @@
 
     public void Enroll(Student student)
     {
-        Students.Add(student);
+        if (Students.Count < MaxSeats)
+        {
+            Students.Add(student);
+        }
     }
     public void Remove(Student student)
     {
         Students.Remove(student);
     }
 
-    public void rollcall()
+    public void Rollcall()
     {
         foreach(Student student in Students)
         {

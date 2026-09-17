@@ -5,8 +5,8 @@ Course programmering = new Course("Programmering");
 albin.Join(matte);
 albin.Join(programmering);
 albin.Schedule();
-matte.rollcall();
-programmering.rollcall();
+matte.Rollcall();
+programmering.Rollcall();
 
 
 
