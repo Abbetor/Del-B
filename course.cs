@@ -11,21 +11,34 @@
 
     public void Enroll(Student student)
     {
-        if (Students.Count < MaxSeats)
+        if (Students.Contains(student))
+        {
+        
+        }
+        else if (Students.Count >= MaxSeats)
+        {
+            Console.WriteLine(Name + " är full");
+        }
+        else
         {
             Students.Add(student);
+            student.Join(this);
         }
     }
     public void Remove(Student student)
     {
-        Students.Remove(student);
+        if (Students.Contains(student))
+        {
+            Students.Remove(student);
+            student.Leave(this);
+        }
     }
 
     public void Rollcall()
     {
         foreach(Student student in Students)
         {
-            Console.WriteLine(student.Name);
+            Console.WriteLine($"Kursdeltagare: {student.Name}");
         }
     }
 

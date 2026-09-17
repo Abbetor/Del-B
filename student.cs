@@ -10,24 +10,29 @@ public class Student
 
     public void Join(Course course)
     {
-        courses.Add(course);
-        course.Enroll(this);
-    }
+        if(courses.Contains(course) == false)
+        {
+            courses.Add(course);
+            course.Enroll(this);
+        }
+    }   
 
      public void Leave(Course course)
-    {
-        courses.Remove(course);
-        course.Students.Remove(this);
-    }
+    {   
+        if(courses.Contains(course))
+        {
+            courses.Remove(course);
+            course.Remove(this);
+        }
+    }   
 
      public void Schedule()
     {
         foreach (Course course in courses)
         {
-            Console.WriteLine(course.Name);
+            Console.WriteLine($"Har lagt till {course.Name}");
         }
 
     }
 
-     
 }
