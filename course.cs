@@ -1,14 +1,35 @@
 ﻿public class Course
 {
-    
-    string Name {get; set;}
-    int MaxSeats = 6;
-    
-    public List<string> Students = new List<string>();
-    
-    public void Enroll(Course course)
+    public string Name { get; set; }
+    public int MaxSeats = 6;
+    public List<Student> Students = new List<Student>();
+
+    public Course(string name)
     {
-        course.Enroll(this);
+        Name = name;
+    }
+
+    public void Enroll(Student student)
+    {
+        Students.Add(student);
+    }
+    public void Remove(Student student)
+    {
+        Students.Remove(student);
+    }
+
+    public void rollcall()
+    {
+        foreach(Student student in Students)
+        {
+            Console.WriteLine(student.Name);
+        }
+    }
+
+    public override string ToString()
+    {
+        return $"{Name} ({Students.Count}/{MaxSeats} platser)";
     }
 
 }
+
