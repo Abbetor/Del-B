@@ -38,5 +38,8 @@ public class Student
         }
 
     }
-
+    public override string ToString()
+    {
+        return $"{Name} {courses.Count} kurser";
+    }
 }
