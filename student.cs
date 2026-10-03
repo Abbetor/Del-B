@@ -10,10 +10,14 @@ public class Student
 
     public void Join(Course course)
     {
-        if(courses.Contains(course) == false)
+        if (courses.Contains(course))
+        return; 
+
+        course.Enroll(this);
+
+        if (course.Students.Contains(this ) && !courses.Contains(course))
         {
             courses.Add(course);
-            course.Enroll(this);
         }
     }   
 
